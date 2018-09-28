@@ -11,6 +11,17 @@ Vertical Style is a custom Lovelace card for Home Assistant who let you group di
 | title | string | **Optional** | Card title
 | style | object | **Optional** | Options: font_size, border,background_color
 
+
+## Style Object
+
+| Name | Type | Default | Options
+| ---- | ---- | ------- | -----------
+| font_size | string | **Optional** | `Example: 20px`
+| border | boolean | **true** | Show or not the card border
+| background_color | string | **Optional** | Options: rgb, var(--), hex
+
+
+
 ## Installation
 
 1. Install the `vertical-style-card` card by copying `vertical-style-card.js` to `<config directory>/www/vertical-style-card.js`
