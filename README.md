@@ -30,7 +30,7 @@ Vertical Style is a custom Lovelace card for Home Assistant who let you group di
 
 Bash:
 ```bash
-wget https://raw.githubusercontent.com/vertical-style-card/master/vertical-style-card.js
+wget https://raw.githubusercontent.com/matisaul/vertical-style-card/master/vertical-style-card.js
 mv vertical-style-card.js /config/www/
 ```
 
