@@ -44,6 +44,18 @@ resources:
 
 3. Add a custom card in your `ui-lovelace.yaml`
 
+
+
+
+#### To add vertical-style-card to custom_updater:
+
+```yaml
+custom_updater:
+  card_urls: 
+    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/vertical-style-card.js
+```
+
+
 **Example**
 
 ```yaml
