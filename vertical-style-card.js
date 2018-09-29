@@ -8,21 +8,24 @@ class VerticalStyleCard extends HTMLElement {
         if (!config || !config.cards || !Array.isArray(config.cards)) {
             throw new Error('Card config incorrect');
         }
-
-		if (config.style.border == true){
-          this.style.boxShadow = "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.15)";
-		  this.style.borderRadius = "2px";
-		}
+        const cardConfig = Object.assign({}, config);
+		cardConfig.style = Object.assign({}, config.style);
+	
+		var prop = {  "border": null  , "background_color":null , "font_size":null}  ;
 		
-		if (config.style.background_color){
-			this.style.background = config.style.background_color;
-		}
-		else {
-			this.style.background = "var(--paper-card-background-color)";
-		}
+		var cardSize = Object.keys(cardConfig.style);
+		
+		if (cardSize.length == 0) Object.assign(cardConfig.style, prop);
 
-		if (!config.style.font_size){
-			config.style.font_size = "var(--paper-font-headline_-_font_size)";
+		if (cardConfig.style.border === undefined || cardConfig.style.border == null ) cardConfig.style.border = true;
+		if (!cardConfig.style.background_color || cardConfig.style.background_color == null ) cardConfig.style.background_color = 'var(--paper-card-background-color)';
+		if (!cardConfig.style.font_size || cardConfig.style.font_size == null ) cardConfig.style.font_size = 'var(--paper-font-headline_-_font-size)';
+
+		this.style.background = cardConfig.style.background_color;
+
+		if (cardConfig.style.border == true){
+			this.style.boxShadow = "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.15)";
+			this.style.borderRadius = "2px";
 		}
 
         const root = this.shadowRoot;
@@ -34,7 +37,7 @@ class VerticalStyleCard extends HTMLElement {
         if (config.title) {
             const title = document.createElement("div");
             title.className = "header";
-            title.style = "font-family: var(--paper-font-headline_-_font-family); -webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing); font_size: " + config.style.font_size + "; font-weight: var(--paper-font-headline_-_font-weight); letter-spacing: var(--paper-font-headline_-_letter-spacing); line-height: var(--paper-font-headline_-_line-height);text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);opacity: var(--dark-primary-opacity);padding: 10px 16px 10px 16px";
+            title.style = "font-family: var(--paper-font-headline_-_font-family); -webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing); font-size: " + cardConfig.style.font_size + "; font-weight: var(--paper-font-headline_-_font-weight); letter-spacing: var(--paper-font-headline_-_letter-spacing); line-height: var(--paper-font-headline_-_line-height);text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);opacity: var(--dark-primary-opacity);padding: 10px 16px 10px 16px";
             title.innerHTML = '<div class="name">' + config.title + '</div>';
             root.appendChild(title);
         }
