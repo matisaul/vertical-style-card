@@ -52,7 +52,7 @@ resources:
 ```yaml
 custom_updater:
   card_urls: 
-    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/vertical-style-card.js
+    - https://raw.githubusercontent.com/matisaul/vertical-style-card/master/tracker.json
 ```
 
 
