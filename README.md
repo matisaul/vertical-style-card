@@ -38,7 +38,7 @@ mv vertical-style-card.js /config/www/
 
 ```yaml
 resources:
-  - url: /local/vertical-style-card.js?v=0.0.1
+  - url: /local/vertical-style-card.js?v=0.1
     type: js
 ```
 
